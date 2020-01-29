@@ -21,7 +21,7 @@ const App = ({ currentUser }) => {
             <ProtectedRoute currentUser={currentUser} exact path='/profile' component="" /> 
             <ProtectedRoute currentUser={currentUser} path='/profile/:profileId' component="" />
             <Route path='*' exact={true} component={NotFound} />
-        </Switch>
+        </Switch> 
       <Footer/>
     </div>
   );
