@@ -1,0 +1,63 @@
+@import '../../assets/scss/abstracts/variables';
+@import '../../assets/scss/abstracts/mixins';
+
+.home-page{
+    overflow: hidden;
+   .home-header{
+        padding: $component-padding 0;
+        height: 100vh;
+        overflow: hidden;
+        background-image: url('../../assets/img/profilehero.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+   }
+
+    .left-section{
+        padding: 0 20px;
+    }
+
+    .right-section{
+        margin-top: 50px;
+    }
+
+    .home-section{
+        padding: 200px 20px;
+    }
+
+    .home-heading-one{
+        font-weight: bold;
+        font-size: 50px;
+        color: rgb(66, 65, 65);
+        letter-spacing: 2px;
+        @include respond(phone){
+            font-size: 35px;
+            padding-bottom: 20px;
+        }
+
+    }
+
+    .home-heading-two{
+        font-weight: bold;
+        font-size: 50px;
+        color: blue;
+        letter-spacing: 2px;
+        @include respond(phone){
+            font-size: 35px;
+            padding-bottom: 20px;
+        }
+
+    }
+
+    .home-paragraph-one{
+        font-weight: 500;
+        font-size: 18px;
+        color: rgb(66, 65, 65);
+        letter-spacing: 2px;
+    }
+
+    .images{
+        width: 200px;
+        height: 200px;
+    }
+    
+}
