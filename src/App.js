@@ -3,12 +3,13 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import NavBar from './component/navbar/navbar.compnent';
 import HomePage from './pages/homepage/homepage.component';
-import Footer from './component/footer/footer.componet';
-import SignInPage from './pages/sigin/signin.component';
+import Footer from './component/footer/footer.component';
+import SignInPage from './pages/signin/signin.component';
 import { connect } from 'react-redux';
 import { selectCurrentUser } from './redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
 import ProtectedRoute from './ProtectedRoute';
+import NotFound from './pages/not-found/not-found.component';
 
 const App = ({ currentUser }) => {
   return (
@@ -19,6 +20,7 @@ const App = ({ currentUser }) => {
             <Route path='/signin' render={() => currentUser ? (<Redirect to="/profile"/>) : (<SignInPage/>)} />
             <ProtectedRoute currentUser={currentUser} exact path='/profile' component="" /> 
             <ProtectedRoute currentUser={currentUser} path='/profile/:profileId' component="" />
+            <Route path='*' exact={true} component={NotFound} />
         </Switch>
       <Footer/>
     </div>
