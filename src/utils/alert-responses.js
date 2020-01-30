@@ -16,6 +16,14 @@ const loginSuccess = () => {
       })
 }
 
+const signupSuccess = () => {
+    Toast.fire({
+        type: 'success',
+        icon: 'success',
+        title: 'Signed up successfully'
+      })
+}
+
 const logOutSuccess = () => {
     Toast.fire({
         type: 'success',
@@ -30,7 +38,7 @@ const loginError = () => {
     Toast.fire({
         type: 'error',
         icon: 'error',
-        title: 'Login Error'
+        title: 'Login error'
       })
 }
 
@@ -38,20 +46,29 @@ const logoutError = () => {
     Toast.fire({
         type: 'error',
         icon: 'error',
-        title: 'Logout Error'
+        title: 'Logout error'
       })
 }
 
+const signupError = () => {
+    Toast.fire({
+        type: 'error',
+        icon: 'error',
+        title: 'Sign up error'
+      })
+}
 
 const successResponses = {
     login : loginSuccess,
     logout: logOutSuccess,
+    signup: signupSuccess
     
 }
 
 const errorResponses ={
     login: loginError,
     logout: logoutError,
+    signup: signupError
 }
 
 const ALERT_RESPONSES = {

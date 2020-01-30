@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
 const useFormValidation = (initialState, validate, runOnSubmit) => {
     const [values, setValues] = useState(initialState);
     const [errors, setErrors] = useState({});
+
     // touched is an array of all fields that have 
     // been touched by the user
     const [touched, setTouched] = useState([]);
@@ -26,7 +27,7 @@ const useFormValidation = (initialState, validate, runOnSubmit) => {
                 setTouched([]);
                 // run form submission when no errors
                 runOnSubmit();
-                console.log(runOnSubmit(), 'odebi')
+                console.log(runOnSubmit(), 'twice-odebi')
                 setSubmitting(false);
                 setValues(initialState)
             } else {
@@ -57,7 +58,7 @@ const useFormValidation = (initialState, validate, runOnSubmit) => {
     const handleChange = (event) => {
         const target = event.target;
         let { name, value } = target
-        value = target.type === 'checkbox' ? !values.is_super : target.value;
+        value = target.type === 'file' ?  URL.createObjectURL(target.files[0]) : target.value;
         name = target.name;
         setValues({
             ...values,

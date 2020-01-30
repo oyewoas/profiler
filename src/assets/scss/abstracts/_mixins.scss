@@ -43,4 +43,19 @@ em adjsut based on the root px set by user in the browser
 			@content
 		}
 	}
-} 
+};
+
+@mixin shrinkLabel {
+	top: -14px;
+	font-size: 12px;
+	color: $color-blue;
+  }
+
+  @mixin shrinkLabelDate {
+	top: -14px;
+	left: 5px;
+	font-size: 12px;
+	color: $color-blue;
+  }
+  
+  
