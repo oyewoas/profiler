@@ -10,7 +10,6 @@ const Toast = Swal.mixin({
 //Success Responses
 const loginSuccess = () => {
     Toast.fire({
-        type: 'success',
         icon: 'success',
         title: 'Logged in successfully'
       })
@@ -18,7 +17,7 @@ const loginSuccess = () => {
 
 const signupSuccess = () => {
     Toast.fire({
-        type: 'success',
+      
         icon: 'success',
         title: 'Signed up successfully'
       })
@@ -26,7 +25,7 @@ const signupSuccess = () => {
 
 const logOutSuccess = () => {
     Toast.fire({
-        type: 'success',
+      
         icon: 'success',
         title: 'Logged out successfully'
       })
@@ -36,7 +35,7 @@ const logOutSuccess = () => {
 //Error Responses
 const loginError = () => {
     Toast.fire({
-        type: 'error',
+       
         icon: 'error',
         title: 'Login error'
       })
@@ -44,7 +43,7 @@ const loginError = () => {
 
 const logoutError = () => {
     Toast.fire({
-        type: 'error',
+        
         icon: 'error',
         title: 'Logout error'
       })
@@ -52,7 +51,6 @@ const logoutError = () => {
 
 const signupError = () => {
     Toast.fire({
-        type: 'error',
         icon: 'error',
         title: 'Sign up error'
       })

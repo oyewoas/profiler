@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 
 
+
 // hook to validate all forms
 // accepts initial state for values, validation funtion, 
 // and method to run when there are no errors
@@ -58,7 +59,7 @@ const useFormValidation = (initialState, validate, runOnSubmit) => {
     const handleChange = (event) => {
         const target = event.target;
         let { name, value } = target
-        value = target.type === 'file' ?  URL.createObjectURL(target.files[0]) : target.value;
+        value = target.type === 'file' ?  target.files[0] : target.value;
         name = target.name;
         setValues({
             ...values,

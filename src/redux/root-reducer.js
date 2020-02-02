@@ -2,6 +2,7 @@ import { combineReducers } from "redux";
 import userReducer from "./user/user.reducer";
 import { persistReducer } from "redux-persist";
 import storage from 'redux-persist/lib/storage' //using localstorage
+import profileReducer from "./profile/profile.reducer";
 
 
 // represent all the state(reducer) for the App
@@ -9,11 +10,12 @@ import storage from 'redux-persist/lib/storage' //using localstorage
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist: ['user'] //what i want to persist
+    whitelist: ['user', 'profile'] //what i want to persist
 }
 
 const rootReducer = combineReducers({
     user: userReducer,
+    profile: profileReducer
     
 })
 

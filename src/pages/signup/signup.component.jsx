@@ -36,10 +36,10 @@ const SignUpPage = ({ signUpUser, history }) => {
                         <div className="col-md-2 col-sm-12 col-lg-2"></div>
                         <div className="col-md-8 col-sm-12 col-lg-8">
                             <div className="legend"><span>Create your profile</span></div>
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} encType="multipart/form-data">
                                 <div className="row">
                                     <div className="form-group col-md-4 profile">
-                                        <img  className="profile-img" alt="" src={values.profileImg === "" ? profileImage : values.profileImg} />
+                                        <img  className="profile-img" alt="" src={values.profileImg === "" ? profileImage : URL.createObjectURL(values.profileImg)} />
                                         <FormInput title="Pick Profile Image" type="file" className="profile-img-input"  handleChange={handleChange} name="profileImg" accept=".jpg, .jpeg, .png" required/>
                                         {errors.profileImg && <p className="error-text">{errors.profileImg}</p>}
                                            
@@ -71,7 +71,7 @@ const SignUpPage = ({ signUpUser, history }) => {
                                     </div>
                                     <div className="form-group col-md-6 mt-5 pt-2">
                                     <select className="form-control select" onChange={handleChange} onBlur={handleBlur} name="security_question" required>
-                                        <option selected disabled>Choose Security Question</option>
+                                        <option defaultValue>Choose Security Question</option>
                                         <option value="what is your mothers maiden name">What is your mothers maiden name</option>
                                         <option value="what is your favourite color">What is your favourite color</option>
                                         <option value="what is your favourite car">What is your favourite car</option>
