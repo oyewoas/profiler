@@ -1,3 +1,5 @@
+import { yearsDiff } from "./date-diff";
+
 // validate function
 // pass in the values object
 const login = (values) => {
@@ -47,7 +49,10 @@ const login = (values) => {
 
     if (!values.date_of_birth) {
       errors.date_of_birth = "Date of birth is required";
+    } else if (values.date_of_birth && yearsDiff(values.date_of_birth, new Date()) < 12){
+      errors.date_of_birth = "Must be older than 12 years";
     }
+
 
     if (!values.password) {
       errors.password = "Password is required";
@@ -73,9 +78,54 @@ const login = (values) => {
     return errors;
   }
 
+  const editProfile = (values) => {
+    // initialize errors object
+    let errors = {};
+  
+    // if errors exist for each field then add them to the errors object
+    if (!values.profileImg) {
+      errors.profileImg = "Profile Image is required";
+    }
+
+    if (!values.phone_number) {
+      errors.phone_number = "Phone number is required";
+    } else if(values.phone_number && !/^[0-9]+$/.test(values.phone_number) ){
+      errors.phone_number= "Phone number must be digits"
+    }
+
+    if (!values.address) {
+      errors.address = "Address is required";
+    }
+
+    if (!values.email) {
+      errors.email = "Email is required";
+    } else if (values.email && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+      errors.email = "Please enter a valid email address";
+    }
+    if (!values.date_of_birth) {
+      errors.date_of_birth = "Date of birth is required";
+    } else if (values.date_of_birth && yearsDiff(values.date_of_birth, new Date()) < 12){
+      errors.date_of_birth = "Must be older than 12 years";
+    }
+
+    if (!values.security_question) {
+      errors.security_question = "Security question is required";
+    }
+
+    if (!values.answer) {
+      errors.answer = "Answer to security question is required";
+    }
+
+
+
+   
+    return errors;
+  }
+
   const FORM_VALIDATION_RULES = {
     login,
-    signup
+    signup,
+    editProfile
   }
 
   export default FORM_VALIDATION_RULES

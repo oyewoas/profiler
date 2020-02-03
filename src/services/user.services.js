@@ -3,18 +3,20 @@ import ALERT_RESPONSES from '../utils/alert-responses'
 import {
     API
 } from '../utils/api-constants'
-const CancelToken = axios.CancelToken;
-let cancelDuplicate;
+// const CancelToken = axios.CancelToken;
+// let cancelDuplicate;
+// {
+//     cancelToken: new CancelToken(function executor(cancel) {
+//         cancelDuplicate = cancel;
+//     })
+// }
+// cancelDuplicate && cancelDuplicate();
 
 
 export const userLogin = async (actionFunction, user) => {
     try {
-        cancelDuplicate && cancelDuplicate();
-        const response = await axios.post(API.LOGIN_API, user, {
-            cancelToken: new CancelToken(function executor(cancel) {
-                cancelDuplicate = cancel;
-            })
-        })
+
+        const response = await axios.post(API.LOGIN_API, user)
         if (response) {
             actionFunction(response)
             ALERT_RESPONSES.successResponses.login()
@@ -40,7 +42,6 @@ export const userLogOut = async (actionFunction, history) => {
 
 export const userSignUp = async (actionFunction, user, history) => {
     try {
-        cancelDuplicate && cancelDuplicate();
         let data = new FormData();
         
         data.append('profileImg', user.profileImg);
@@ -54,11 +55,7 @@ export const userSignUp = async (actionFunction, user, history) => {
 
         
 
-        const response = await axios.post(API.SIGN_UP_API, data, {
-            cancelToken: new CancelToken(function executor(cancel) {
-                cancelDuplicate = cancel;
-            })
-        })
+        const response = await axios.post(API.SIGN_UP_API, data)
         if (response) {
             actionFunction(response)
             history.push('/signin')

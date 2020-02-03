@@ -7,3 +7,9 @@ export const getCurrentProfile = profile => ({
     payload: profile
 
 })
+
+export const updateProfile = profile => ({
+    type: profileActionTypes.UPDATE_PROFILE,
+    payload: profile
+
+})

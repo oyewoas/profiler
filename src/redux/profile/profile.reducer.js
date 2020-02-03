@@ -13,6 +13,11 @@ const profileReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentProfile: action.payload.data.data
             }
+        case profileActionTypes.UPDATE_PROFILE:
+            return {
+                ...state,
+                currentProfile: action.payload.data.data
+            }
         default:
             return state
     }

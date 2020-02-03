@@ -6,3 +6,4 @@ export const selectCurrentProfile = createSelector(
     [selectProfile],
     (profile) => profile.currentProfile 
 )
+

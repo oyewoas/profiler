@@ -1,22 +1,27 @@
+@import '../../assets/scss/abstracts/variables';
+
 .profile-view {
 
     .profile-container {
-        -webkit-box-shadow: 3px 9px 71px -1px rgba(143, 140, 143, 1);
-        -moz-box-shadow: 3px 9px 71px -1px rgba(143, 140, 143, 1);
-        box-shadow: 3px 9px 71px -1px rgba(143, 140, 143, 1);
+        -webkit-box-shadow: 3px 9px 71px -1px $color-grey;
+        -moz-box-shadow: 3px 9px 71px -1px $color-grey;
+        box-shadow: 3px 9px 71px -1px $color-grey;
         border-radius: 20px;
         border: none;
         padding-top: 50px;
         padding-bottom: 50px;
         .profile-heading{
-            color: blue;
+            color: $color-blue;
             font-size: 23px;
             font-weight: 500;
         }
         .profile-text{
-            color: grey;
+            color: $main-color;;
             font-size: 18px;
             font-weight: 400;
+            border: solid 1px $sub-color;
+            border-radius: 5px;
+            padding: 10px;
         }
     }
     .profile-pics-container{

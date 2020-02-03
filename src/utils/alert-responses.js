@@ -31,13 +31,21 @@ const logOutSuccess = () => {
       })
 }
 
+const updateProfileSuccess = () => {
+    Toast.fire({
+      
+        icon: 'success',
+        title: 'Profile updated successfully'
+      })
+}
+
 
 //Error Responses
 const loginError = () => {
     Toast.fire({
        
         icon: 'error',
-        title: 'Login error'
+        title: 'Unable to login user, check credentials'
       })
 }
 
@@ -46,6 +54,14 @@ const logoutError = () => {
         
         icon: 'error',
         title: 'Logout error'
+      })
+}
+
+const updateProfileError = () => {
+    Toast.fire({
+        
+        icon: 'error',
+        title: 'Unable to update profile try again'
       })
 }
 
@@ -59,14 +75,16 @@ const signupError = () => {
 const successResponses = {
     login : loginSuccess,
     logout: logOutSuccess,
-    signup: signupSuccess
+    signup: signupSuccess,
+    update: updateProfileSuccess
     
 }
 
 const errorResponses ={
     login: loginError,
     logout: logoutError,
-    signup: signupError
+    signup: signupError,
+    update: updateProfileError
 }
 
 const ALERT_RESPONSES = {
