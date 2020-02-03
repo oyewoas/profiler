@@ -60,4 +60,4 @@ const mapDispatchToProps = dispatch => ({
     dataLoading: () => dispatch(dataLoading())
 })
 
-export default connect(mapDispatchToProps)(SignInPage)
+export default connect(null, mapDispatchToProps)(SignInPage)
