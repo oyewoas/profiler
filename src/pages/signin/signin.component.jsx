@@ -6,16 +6,16 @@ import CustomButton from '../../component/custom-button/custom-button.component'
 import useFormValidation from '../../component/use-formvalidation/use-formvalidation.component'
 import FORM_VALIDATION_RULES from '../../utils/form-validation-rules'
 import { connect } from 'react-redux'
-import { setCurrentUser } from '../../redux/user/user.actions'
+import { setCurrentUser, dataLoading } from '../../redux/user/user.actions'
 import { userLogin } from '../../services/user.services'
-
 
 const {login} = FORM_VALIDATION_RULES
 
-const SignInPage = ({ setCurrentUser }) => {
+const SignInPage = ({ dataLoading, setCurrentUser }) => {
     const initialFormState = { email: "", password: ""};
 
     const loginFunction = () => {
+        dataLoading()
         userLogin(setCurrentUser, values)
     }
     
@@ -57,5 +57,7 @@ const SignInPage = ({ setCurrentUser }) => {
 
 const mapDispatchToProps = dispatch => ({
     setCurrentUser: user => dispatch(setCurrentUser(user)),
+    dataLoading: () => dispatch(dataLoading())
 })
-export default connect(null, mapDispatchToProps)(SignInPage)
+
+export default connect(mapDispatchToProps)(SignInPage)

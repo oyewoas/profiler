@@ -8,7 +8,7 @@ import useFormValidation from '../../component/use-formvalidation/use-formvalida
 import FORM_VALIDATION_RULES from '../../utils/form-validation-rules'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { updateProfile } from '../../redux/profile/profile.actions'
+import { updateProfile, dataLoading } from '../../redux/profile/profile.actions'
 import { profileUpdate } from '../../services/profile.services'
 import { selectCurrentProfile } from '../../redux/profile/profile.selector'
 import { selectCurrentUser } from '../../redux/user/user.selector'
@@ -17,11 +17,12 @@ import dateformat from 'dateformat';
 
 const {editProfile} = FORM_VALIDATION_RULES
 
-const EditProfilePage = ({ updateProfile, history, currentProfile, currentUser }) => {
+const EditProfilePage = ({ dataLoading, updateProfile, history, currentProfile, currentUser }) => {
     const {_id, profileImg, address, email, date_of_birth, phone_number, security_question, answer } = currentProfile
     const initialFormState = {profileImg, phone_number, address, date_of_birth, security_question, answer, email};
     
     const updateProfileFunction = () => {
+        dataLoading()
         profileUpdate(updateProfile, values, _id, currentUser.data.token, history)
     }
 
@@ -100,6 +101,7 @@ const EditProfilePage = ({ updateProfile, history, currentProfile, currentUser }
 
 const mapDispatchToProps = dispatch => ({
     updateProfile: profile => dispatch(updateProfile(profile)),
+    dataLoading: () => dispatch(dataLoading())
 })
 
 const mapStateToProps = createStructuredSelector({

@@ -15,3 +15,7 @@ export const logOutCurrentUser = () => ({
 export const signUpUser = () => ({
     type: userActionTypes.SIGN_UP_USER,
 })
+
+export const dataLoading = () => ({
+    type: userActionTypes.DATA_LOADING
+})
