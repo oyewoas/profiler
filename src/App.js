@@ -1,26 +1,41 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
+import NavBar from './component/navbar/navbar.compnent';
+import HomePage from './pages/homepage/homepage.component';
+import Footer from './component/footer/footer.component';
+import SignInPage from './pages/signin/signin.component';
+import SignUpPage from './pages/signup/signup.component';
 
-function App() {
+import { connect } from 'react-redux';
+import { selectCurrentUser } from './redux/user/user.selector';
+import { createStructuredSelector } from 'reselect';
+import ProtectedRoute from './ProtectedRoute';
+import NotFound from './pages/not-found/not-found.component';
+import ProfilePage from './pages/profilepage/profilepage.component';
+import EditProfilePage from './pages/editprofile/editprofile.component';
+
+
+const App = ({ currentUser }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <NavBar/>
+        <Switch>
+            <Route exact path='/'  render={() => currentUser ? (<Redirect to="/profile"/>) : (<HomePage/>)} /> 
+            <Route path='/signin' render={() => currentUser ? (<Redirect to="/profile"/>) : (<SignInPage/>)} />
+            <Route path='/signup' render={() => currentUser ? (<Redirect to="/profile"/>) : (<SignUpPage/>)} />
+            <ProtectedRoute currentUser={currentUser} exact path='/profile' component={ProfilePage} /> 
+            <ProtectedRoute currentUser={currentUser} path='/profile/edit' component={EditProfilePage} />
+            <Route path='*' exact={true} component={NotFound} />
+        </Switch> 
+      <Footer/>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  
+})
+
+export default connect(mapStateToProps)(App);

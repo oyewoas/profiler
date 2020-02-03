@@ -1,0 +1,14 @@
+@import '../../assets/scss/abstracts/variables';
+@import '../../assets/scss/abstracts/mixins';
+
+
+.notfound-page{
+    padding: $component-padding 0;
+    height: 100vh;
+    .heading{
+        color: blue;
+        font-weight: bold;
+        font-size: 50px;
+        text-align: center;
+    }
+}
