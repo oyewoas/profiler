@@ -3,14 +3,7 @@ import ALERT_RESPONSES from '../utils/alert-responses'
 import {
     API
 } from '../utils/api-constants'
-// const CancelToken = axios.CancelToken;
-// let cancelDuplicate;
-// {
-//     cancelToken: new CancelToken(function executor(cancel) {
-//         cancelDuplicate = cancel;
-//     })
-// }
-// cancelDuplicate && cancelDuplicate();
+
 
 
 export const userLogin = async (actionFunction, user) => {
