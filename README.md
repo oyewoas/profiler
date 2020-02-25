@@ -2,7 +2,7 @@ To test clone the repository (https://github.com/oyewoas/profiler.git).
 
 ## To test on local
 
-cd into the project directory (cd front-end-test-1), you can run:
+cd into the project directory (cd profiler), you can run:
 
 ### `yarn start`
 
