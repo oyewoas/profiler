@@ -1,4 +1,4 @@
-To test clone the repository (https://github.com/oyewoas/front-end-test-1.git).
+To test clone the repository (https://github.com/oyewoas/profiler.git).
 
 ## To test on local
 
